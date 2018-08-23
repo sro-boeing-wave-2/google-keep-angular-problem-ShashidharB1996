@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+<mat-card class="create-card">
+<div class="container-fluid mb-5">
+  <h1>Add a Note</h1>
+  <form #newnote="ngForm" (ngSubmit)="onSubmit()" novalidate>
+<!--
+    {{newnote.value | json}}
+
+    <hr/>
+
+    {{noteModel | json}} -->
+
+    <div class="form-group">
+      <label>ID</label>
+      <input type="text" class="form-control" name="ID" [(ngModel)]="noteModel.ID">
+    </div>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="Title" [(ngModel)]="noteModel.Title">
+    </div>
+
+    <div class="form-group">
+      <label>Body of Note</label>
+      <input type="text" class="form-control" name="PlainText" [(ngModel)]="noteModel.PlainText">
+    </div>
+
+    <div class="form-check mb-3">
+
+        <input class="form-check-input" name="PinnedStatus" [(ngModel)]="noteModel.PinnedStatus" type="checkbox">
+        <label class="form-check-label">The Note should be Pinned? </label>
+      </div>
+
+    <div class="form-group">
+      <label>Labels</label>
+      <input type="text" class="form-control" name="Labels" [(ngModel)]="noteModel.Labels">
+    </div>
+
+
+    <div class="form-group">
+      <label>CheckList</label>
+      <input type="text" class="form-control" name="CheckList" [(ngModel)]="noteModel.CheckList">
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
+</div>
+</mat-card>
+
+

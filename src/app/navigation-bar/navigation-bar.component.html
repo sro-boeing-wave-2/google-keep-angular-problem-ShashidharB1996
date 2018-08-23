@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [ngClass]="{hidden: !(isHandset$ | async)}"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+        <a routerLink='/notes'>Display my Notes</a>
+        <a routerLink='/post/notes'>Take a Note</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="nav">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>GoogleKeep</span>
+
+      <span class="space"></span>
+
+
+      <!-- <a routerLink='/post/notes'>Take a Note</a> -->
+
+      <button routerLink='/notes' type="button" class="btn btn-outline-light">Display my Notes</button>
+      <a routerLink='' data-toggle="tooltip" data-placement="bottom" title="Home"><mat-icon aria-label="Side nav toggle icon">home</mat-icon></a>
+      <a routerLink='/post/notes' data-toggle="tooltip" data-placement="bottom" title="New Note"><mat-icon aria-label="Side nav toggle icon">note_add</mat-icon></a>
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form mt-0" class="searchbox">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search notes here" aria-label="Search" name="title" [(ngModel)]="title">
+            <button type="button" class="btn btn-outline-light" (click)=searchNote(title)>Search</button>
+        </div>
+    </form>
+      <a routerLink='' data-toggle="tooltip" data-placement="bottom" title="My Account"><mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon></a>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content>
+
+
+    </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,53 @@
+<mat-grid-list class="gridview" cols="4" gutterSize="5px">
+  <mat-grid-tile *ngFor="let note of notes" [colspan]="1">
+    <mat-card class="example-card">
+
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title><b>{{note.title}}</b></mat-card-title><hr>
+        <a class="pintoggle" routerLink='/notes' (click)=pinClick() data-toggle="tooltip" data-placement="top" title="pin"><i class="fa fa-thumb-tack" style="font-size:48px color = black"></i></a>
+        <!-- <a class="pintoggle" data-toggle="tooltip" data-placement="top" title="pin"><input class="form-check-input" name="pinnedStatus" [(ngModel)]="note.pinnedStatus" type="checkbox"></a> -->
+        <!-- <mat-card-subtitle>{{note.id}}</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content class="noteText">
+        <p>
+          {{note.plainText}}
+        </p>
+      </mat-card-content>
+
+      <mat-card-content>
+        <p>
+          {{note.pinnedStatus}}
+        </p>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-icon aria-label="Side nav toggle icon">label</mat-icon>
+        <ul>
+          <li *ngFor="let lab of note.labels">
+            {{lab.labelText}}
+          </li>
+          </ul>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-icon aria-label="Side nav toggle icon">list</mat-icon>
+          <ul>
+          <li *ngFor="let chk of note.checkList">
+            {{chk.checkListText}}
+          </li>
+          </ul>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <!-- <button style="margin-top:5px; margin-bottom: 5px; margin-right: 5px;" mat-stroked-button color="primary" (click)=editClick(note)>EDIT</button> -->
+        <!-- <button style="margin:5px;" mat-stroked-button color="warn" (click)=deleteClick(note)>DELETE</button> -->
+        <!-- <mat-icon svgIcon="delete-icon"></mat-icon> -->
+        <a routerLink='' (click)=editClick(note) data-toggle="tooltip" data-placement="top" title="edit"><mat-icon aria-label="Side nav toggle icon" style="margin-left: 10px;">edit</mat-icon></a>
+        <a routerLink='' (click)=deleteClick(note) data-toggle="tooltip" data-placement="top" title="delete"><mat-icon aria-label="Side nav toggle icon" style="margin-left: 105px;">delete</mat-icon></a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+

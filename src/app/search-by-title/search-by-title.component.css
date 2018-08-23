@@ -1,0 +1,12 @@
+.example-card {
+  max-width: 500px;
+  background-color: #F7DC6F;
+}
+
+mat-card-actions a {
+  color: black;
+}
+
+.pintoggle{
+  float: right;
+}

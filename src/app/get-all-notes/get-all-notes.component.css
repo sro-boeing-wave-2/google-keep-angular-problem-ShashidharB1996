@@ -1,0 +1,16 @@
+.example-card {
+  max-width: 500px;
+  background-color: #F7DC6F;
+}
+
+mat-card-actions a {
+  color: black;
+}
+
+.pintoggle{
+  margin-left : 42px;
+}
+
+.gridview{
+  background-color: #ECF0F1 ;
+}
